@@ -31,6 +31,31 @@ h1 {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
+.upload-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #3b82f6;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .upload-btn:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+  }
+  
+  .upload-btn:active {
+    transform: translateY(0);
+  }
+  
+
 .subtitle {
     color: #94a3b8;
     font-size: 1.1rem;
