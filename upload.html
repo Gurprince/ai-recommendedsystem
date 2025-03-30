@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Upload & Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="upload.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-tasks"></i> Task Upload & Analysis</h1>
+            <p class="subtitle">Upload your completed task or enter text for analysis</p>
+        </header>
+
+        <div class="task-selection">
+            <div class="option-header">
+                <i class="fas fa-list-check"></i>
+                <h3>Select Task to Submit</h3>
+            </div>
+            <select id="taskSelector" required>
+                <option value="">Select the task you completed</option>
+            </select>
+        </div>
+
+        <form id="uploadForm">
+            <div class="input-options">
+                <!-- Text Input Option -->
+                <div class="input-option">
+                    <div class="option-header">
+                        <i class="fas fa-keyboard"></i>
+                        <h3>Enter Task Details</h3>
+                    </div>
+                    <div class="text-input-area">
+                        <label for="completedTask">
+                            <i class="fas fa-pencil-alt"></i>
+                            Task Description
+                        </label>
+                        <textarea id="completedTask" placeholder="Type or paste your completed task details here..."></textarea>
+                    </div>
+                </div>
+
+                <!-- File Upload Option -->
+                <div class="input-option">
+                    <div class="option-header">
+                        <i class="fas fa-file-upload"></i>
+                        <h3>Upload Task File</h3>
+                    </div>
+                    <div class="file-upload-area">
+                        <i class="fas fa-cloud-upload-alt file-upload-icon"></i>
+                        <p class="file-upload-text">
+                            <strong>Choose a file</strong>
+                            or drag it here
+                        </p>
+                        <input type="file" id="taskFile" accept=".txt,.doc,.docx,.pdf">
+                    </div>
+                    <div class="file-list">
+                        <!-- File items will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" id="submit">
+                <i class="fas fa-paper-plane"></i>
+                Analyze Task
+            </button>
+        </form>
+
+        <div id="feedback">
+            <h2><i class="fas fa-chart-bar"></i> Analysis Results</h2>
+            
+            <!-- Loading State -->
+            <div class="loading-state" style="display: none">
+                <div class="spinner"></div>
+                <p class="loading-text">Analyzing your task...</p>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state">
+                <i class="fas fa-inbox"></i>
+                <p>Upload a task or enter text to see the analysis</p>
+            </div>
+
+            <!-- Success Message -->
+            <div class="success-message" style="display: none">
+                <i class="fas fa-check-circle"></i>
+                <span>Analysis completed successfully!</span>
+            </div>
+
+            <!-- Error Message -->
+            <div class="error-message" style="display: none">
+                <i class="fas fa-exclamation-circle"></i>
+                <span>An error occurred during analysis. Please try again.</span>
+            </div>
+
+            <!-- Analysis Content -->
+            <div id="analysis">
+            </div>
+
+            <!-- Next Task Recommendation Section -->
+            <div id="nextTaskSection" style="display: none">
+                <div class="next-task-option">
+                    <div class="next-task-header">
+                        <i class="fas fa-arrow-right"></i>
+                        <h3>Recommended Next Task</h3>
+                    </div>
+                    <div class="next-task-content">
+                        <p id="nextTaskDescription"></p>
+                        <button class="accept-next-task">
+                            <i class="fas fa-plus"></i>
+                            Add to My Tasks
+                        </button>
+                    </div>
+                </div>
+                <!-- Task Added Confirmation -->
+                <div class="task-added-message" style="display: none">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Next task has been added to your task list!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="handleUploadForm.js"></script>
+</body>
+</html>

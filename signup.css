@@ -1,0 +1,388 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-image: url('./images/bg.jpg');  
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    min-height: 600px;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.right-side {
+    flex: 1;
+    padding: 3rem;
+    background: white;
+}
+.left-side {
+    flex: 1;
+    background: linear-gradient(135deg, #121212, #1a1a1a); /* Dark gradient background */
+    padding: 3rem;
+    position: relative;
+    color: #ffffff; /* Light text color for contrast */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.left-side .content {
+    max-width: 500px;
+    height: 100%;
+    padding: 2rem;
+    color: #ffffff; /* Light text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.left-side h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(45deg, #03DAC6, #00E5FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.left-side p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #bbbbbb;
+}
+
+.left-side::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(3, 218, 198, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none;
+}
+
+/* General Features Section Styles */
+.features {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Feature Item Styles */
+.feature-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: rgba(3, 218, 198, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    opacity: 0; /* Default to hidden for animation */
+    transform: translateX(-20px);
+    animation: slideIn 0.5s ease forwards;
+}
+
+/* Feature Icons */
+.feature-icon {
+    width: 24px;
+    height: 24px;
+    background: #03DAC6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+/* Feature Text */
+.feature-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: #c2c0c0;
+}
+
+/* Animation for Feature Items */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Add delays for sequential animations */
+.feature-item:nth-child(1) { animation-delay: 0.2s; }
+.feature-item:nth-child(2) { animation-delay: 0.4s; }
+.feature-item:nth-child(3) { animation-delay: 0.6s; }
+
+/* Hover Effect for Feature Items */
+.feature-item:hover {
+    background-color: rgba(3, 218, 198, 0.2);
+    transform: translateX(5px);
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+    .features {
+        gap: 1rem;
+    }
+
+    .feature-item {
+        padding: 0.75rem 1rem;
+    }
+
+    .feature-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 0.9rem;
+    }
+
+    .feature-item p {
+        font-size: 0.95rem;
+    }
+}
+
+
+/* Update existing signup-box styles */
+.signup-box {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    border: none;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+input {
+    width: 100%;
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 2px solid rgba(128, 128, 128, 0.688);
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #03DAC6;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(3, 218, 198, 0.1);
+}
+
+input::placeholder {
+    color: #adb5bd;
+}
+
+/* Modern floating effect */
+.form-group:focus-within label {
+    color: #03DAC6;
+}
+
+/* Add icons to inputs */
+.form-group::after {
+    content: '';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.form-group:focus-within::after {
+    opacity: 1;
+}
+
+/* Error state */
+input.error {
+    border-color: #ff4757;
+    background-color: #fff8f8;
+}
+
+/* Success state */
+input.success {
+    border-color: #2ecc71;
+    background-color: #f8fff8;
+}
+
+.signup-btn {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 1rem 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(
+        45deg,
+        #03DAC6,
+        #00c4b4
+    );
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(3, 218, 198, 0.3);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.signup-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(3, 218, 198, 0.4);
+}
+
+.login-link {
+    margin-top: 1.5rem;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.login-link a {
+    color: #03DAC6;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Add subtle animation for form elements */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-group {
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+/* Add responsive adjustments */
+@media (max-width: 480px) {
+    .signup-box {
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+}
+
+
+/* Add to both login.css and signup.css */
+.error-message {
+    color: #ff4757;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+input.error {
+    border-color: #ff4757;
+    background-color: #fff8f8;
+}
+
+input.error:focus {
+    border-color: #ff4757;
+    box-shadow: 0 0 0 4px rgba(255, 71, 87, 0.1);
+}
+
+/* Button loading state */
+.button-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(27, 26, 26, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.signup-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* General error message */
+.error-message.general {
+    text-align: center;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    background: rgba(255, 71, 87, 0.1);
+    border-radius: 8px;
+}

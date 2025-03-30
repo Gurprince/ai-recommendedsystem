@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Recommender</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Add modern font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Add icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1><i class="fas fa-tasks"></i> Task Recommender</h1>
+        <p class="subtitle">Get personalized task recommendations based on your preferences</p>
+        <button id="viewAcceptedTasks" class="view-tasks-btn">
+          <i class="fas fa-list-check"></i> View Accepted Tasks
+        </button>
+      </header>
+
+      <div class="formOne">
+        <form id="form">
+          <div class="input-group">
+            <label for="skill">
+              <i class="fas fa-brain"></i> Skill Level
+            </label>
+            <input type="text" name="skill" id="skill" placeholder="Enter the skill you want to learn" required>
+          </div>
+
+          <div class="input-group">
+            <label for="level">
+              <i class="fas fa-chart-line"></i> Skill Level
+            </label>
+            <select id="level" name="level" required>
+              <option value="">Select difficulty</option>
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="time">
+              <i class="far fa-clock"></i> Available Time (minutes)
+            </label>
+            <input type="number" name="time" id="time" min="5" max="240" required />
+          </div>
+
+          <button type="submit" id="submit">
+            <i class="fas fa-magic"></i> Get Recommendation
+          </button>
+        </form>
+
+        <div class="answer">
+          <h3><i class="fas fa-lightbulb"></i> Recommended Task</h3>
+          <div id="taskCard" class="task-card">
+            <p id="taskForYou"><div id="loading" class="spinner" style="display: none"></div></p>
+            <div class="task-actions" style="display: none">
+              <button id="acceptTask" class="action-btn accept">
+                <i class="fas fa-check"></i> Accept
+              </button>
+              <button id="newTask" class="action-btn refresh">
+                <i class="fas fa-sync-alt"></i> Try Another
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tasksModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2><i class="fas fa-list-check"></i> Your Accepted Tasks</h2>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div id="acceptedTasksList"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="handleTaskForm.js"></script>
+    <!-- Include Mammoth.js for .docx file handling -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
+
+    <!-- Include pdf.js for .pdf file handling -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+  </body>
+</html>
